@@ -10,7 +10,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
-import { baseTheme } from "../Estilos/Estilos";
+import { baseTheme } from "../../Estilos/Estilos";
 import { ThemeProvider } from "@mui/material";
 import { CartWidget } from "./CartWidget";
 

@@ -10,7 +10,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import SearchNavBar from "./SearchNavBar";
-import UserItems from "./UserItems";
+import UserItems from "./NavBarRight/UserItems";
 import { baseTheme } from "../Estilos/Estilos";
 import { ThemeProvider } from "@mui/material";
 import TokenIcon from "@mui/icons-material/Token";
