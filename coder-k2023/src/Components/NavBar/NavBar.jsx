@@ -1,26 +1,28 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
+import React, { useState } from "react";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  MenuItem,
+  Container,
+  Button,
+  ThemeProvider,
+} from "@mui/material";
+import TokenIcon from "@mui/icons-material/Token";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
 import SearchNavBar from "./SearchNavBar";
 import UserItems from "./NavBarRight/UserItems";
 import { baseTheme } from "../Estilos/Estilos";
-import { ThemeProvider } from "@mui/material";
-import TokenIcon from "@mui/icons-material/Token";
 
 const pages = ["Productos", "Contacto", "Ayuda"];
 
 export const NavBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
 
-  const [theme] = React.useState(baseTheme);
+  const [theme] = useState(baseTheme);
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };

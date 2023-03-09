@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import Avatar from "@mui/material/Avatar";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import Divider from "@mui/material/Divider";
-import Settings from "@mui/icons-material/Settings";
-import Logout from "@mui/icons-material/Logout";
+import {
+  Box,
+  Toolbar,
+  IconButton,
+  MenuItem,
+  Menu,
+  Avatar,
+  ListItemIcon,
+  Divider,
+  ThemeProvider,
+} from "@mui/material";
+import { AccountCircle, Settings, Logout } from "@mui/icons-material";
 import { baseTheme } from "../../Estilos/Estilos";
-import { ThemeProvider } from "@mui/material";
 import { CartWidget } from "./CartWidget";
 
 export default function UserItems() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const [theme] = useState(baseTheme);
 
