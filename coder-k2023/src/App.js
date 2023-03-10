@@ -1,12 +1,18 @@
+import Footer from "./Components/Footer/Footer";
 import ItemListContainer from "./Components/ItemListContainer/ItemListContainer";
 import { NavBar } from "./Components/NavBar/NavBar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <NavBar />
-      <ItemListContainer greeting={"soy un item list container"} />
-    </div>
+
+      <Routes>
+        <Route path="/" element={<ItemListContainer />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
