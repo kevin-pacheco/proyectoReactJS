@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { ThemeProvider, Button } from "@mui/material";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { baseTheme } from "../Estilos/Estilos";
 
 const Item = ({ element }) => {
@@ -36,22 +37,18 @@ const Item = ({ element }) => {
         </Stack>
       </CardBody>
       <Divider />
-      {/* <Link to={`/itemDetail/${element.id}`}>
-          <Button size="small" variant="contained" color="primary">
-            Ver detalle
-          </Button>
-        </Link> */}
       <CardFooter>
         <ButtonGroup spacing="6.0rem">
           <ThemeProvider theme={theme}>
-            <Button variant="contained" color="primary">
-              <Text color="white" fontSize="2xl">
-                Details
-              </Text>
-            </Button>
-
+            <Link to={`itemDetail/${element.id}`}>
+              <Button variant="contained" color="primary">
+                <Text color="white" fontSize="2xl">
+                  Detalles
+                </Text>
+              </Button>
+            </Link>
             <Button variant="outlined" colorscheme="primary">
-              Add to cart
+              Añadir +
             </Button>
           </ThemeProvider>
         </ButtonGroup>
