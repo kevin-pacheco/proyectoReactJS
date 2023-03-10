@@ -13,8 +13,9 @@ const ItemListContainer = () => {
   );
 
   useEffect(() => {
-    const productList = categoryName ? productosFiltrados : products;
-    setItems(productList);
+    const productList = new Promise((resolve, reject) => {
+      resolve(categoryName ? productosFiltrados : products);
+    });
 
     productList
       .then((res) => {

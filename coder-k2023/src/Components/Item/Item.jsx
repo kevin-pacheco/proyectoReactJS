@@ -1,19 +1,28 @@
-import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
-import { ButtonGroup } from "@chakra-ui/";
+import { Card, CardBody, CardFooter } from "@chakra-ui/react";
+import {
+  ButtonGroup,
+  Button,
+  Image,
+  Stack,
+  Heading,
+  Text,
+  Divider,
+} from "@chakra-ui/react";
 
 const Item = ({ element }) => {
   return (
-    <Card maxW="sm">
+    <Card maxW="400">
       <CardBody>
         <Image
-          src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+          boxSize="300"
+          src={element.img}
           alt="Green double couch with wooden legs"
           borderRadius="lg"
         />
         <Stack mt="6" spacing="3">
           <Heading size="md">{element.title}</Heading>
           <Text>{element.description}</Text>
-          <Text color="blue.600" fontSize="2xl">
+          <Text color="primary.main" fontSize="2xl">
             {element.price}
           </Text>
         </Stack>
@@ -26,7 +35,7 @@ const Item = ({ element }) => {
             Ver detalle
           </Button>
         </Link> */}
-          <Button variant="solid" colorScheme="blue">
+          <Button variant="solid" colorScheme="green">
             Details
           </Button>
           <Button variant="ghost" colorScheme="blue">

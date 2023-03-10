@@ -1,4 +1,4 @@
-import Footer from "./Components/Footer/Footer";
+//import Footer from "./Components/Footer/Footer";
 import ItemListContainer from "./Components/ItemListContainer/ItemListContainer";
 import { NavBar } from "./Components/NavBar/NavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -11,7 +11,6 @@ function App() {
       <Routes>
         <Route path="/" element={<ItemListContainer />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 }
