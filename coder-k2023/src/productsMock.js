@@ -19,7 +19,7 @@ export const products = [
   },
   {
     id: 3,
-    title: "MSI MPG b650 Carbon Wifi DDR5",
+    title: "MSI MPG b650 Carbon Wifi",
     price: 19000,
     stock: 5,
     description: "",
