@@ -9,7 +9,7 @@ import {
   Text,
   Divider,
 } from "@chakra-ui/react";
-import { ThemeProvider, Button } from "@mui/material";
+import { ThemeProvider, Button, Typography } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { baseTheme } from "../Estilos/Estilos";
@@ -18,13 +18,16 @@ const Item = ({ element }) => {
   const [theme] = useState(baseTheme);
 
   return (
-    <Card>
+    <Card sx={{ bordercolor: "1", borderRadius: 1 }}>
       <CardBody boxSize="350">
         <Image
+          display="flex"
+          justifyContent="center"
           maxHeight="250"
           src={element.img}
           alt="imgProduct"
           borderRadius="lg"
+          mx="auto"
         />
         <Stack mt="6" spacing="3">
           <Heading size="md">{element.title}</Heading>
@@ -42,9 +45,9 @@ const Item = ({ element }) => {
           <ThemeProvider theme={theme}>
             <Link to={`itemDetail/${element.id}`}>
               <Button variant="contained" color="primary">
-                <Text color="white" fontSize="2xl">
+                <Typography color="white" fontSize="2xl">
                   Detalles
-                </Text>
+                </Typography>
               </Button>
             </Link>
             <Button variant="outlined" colorscheme="primary">

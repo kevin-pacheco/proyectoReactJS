@@ -2,16 +2,25 @@
 import ItemListContainer from "./Components/ItemListContainer/ItemListContainer";
 import { NavBar } from "./Components/NavBar/NavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer";
+import { ThemeProvider } from "@mui/material";
+import { useState } from "react";
+import { baseTheme } from "./Components/Estilos/Estilos";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <NavBar />
+  const [theme] = useState(baseTheme);
 
-      <Routes>
-        <Route path="/" element={<ItemListContainer />} />
-      </Routes>
-    </BrowserRouter>
+  return (
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <NavBar />
+
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/itemDetail/:id" element={<ItemDetailContainer />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

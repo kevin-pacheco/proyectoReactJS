@@ -132,7 +132,7 @@ export const NavBar = () => {
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  {page.name}
+                  <Link to={page.path}>{page.name}</Link>
                 </Button>
               ))}
               <Box>

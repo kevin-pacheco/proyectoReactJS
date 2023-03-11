@@ -10,7 +10,7 @@ export const products = [
   },
   {
     id: 2,
-    title: "Rog Strix z690-f Gaming Wifi",
+    title: "ROG STRIX Z690-f Gaming Wifi",
     price: 14500,
     stock: 5,
     description: "",
