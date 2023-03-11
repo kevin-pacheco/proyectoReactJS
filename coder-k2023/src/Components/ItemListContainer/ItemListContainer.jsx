@@ -25,7 +25,7 @@ const ItemListContainer = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [categoryName, productosFiltrados]);
+  }, [categoryName]);
 
   return (
     <div>

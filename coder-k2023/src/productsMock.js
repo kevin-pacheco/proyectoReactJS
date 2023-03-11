@@ -23,7 +23,7 @@ export const products = [
     price: 19000,
     stock: 5,
     description: "",
-    category: "motherboards",
+    category: "motherboard",
     img: "https://res.cloudinary.com/ds8t4shrj/image/upload/v1678473846/byteStore/msi-mpg-b650-carbon-wifi-2d-rgb_kkhmtf.jpg",
   },
   {

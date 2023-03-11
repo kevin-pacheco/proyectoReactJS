@@ -6,6 +6,7 @@ import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailCont
 import { ThemeProvider } from "@mui/material";
 import { useState } from "react";
 import { baseTheme } from "./Components/Estilos/Estilos";
+import ProductosNav from "./Components/ProductosNav/ProductosNav";
 
 function App() {
   const [theme] = useState(baseTheme);
@@ -14,9 +15,13 @@ function App() {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <NavBar />
-
+        <ProductosNav />
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
+          <Route
+            path="/category/:categoryName"
+            element={<ItemListContainer />}
+          />
           <Route path="/itemDetail/:id" element={<ItemDetailContainer />} />
         </Routes>
       </BrowserRouter>
