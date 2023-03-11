@@ -16,8 +16,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SearchNavBar from "./SearchNavBar";
 import UserItems from "./NavBarRight/UserItems";
 import { baseTheme } from "../Estilos/Estilos";
+import { Link } from "react-router-dom";
 
-const pages = ["Productos", "Contacto", "Ayuda"];
+const pages = [
+  { name: "Productos", path: "/" },
+  { name: "Contacto", path: "/" },
+  { name: "Ayuda", path: "/" },
+]; //Luego se agregaran los respectivos paths
 
 export const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -36,10 +41,12 @@ export const NavBar = () => {
       <AppBar position="static" color="primary">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <TokenIcon
-              color="secondary"
-              sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-            />
+            <Link to="/">
+              <TokenIcon
+                color="secondary"
+                sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+              />
+            </Link>
             <Typography
               variant="h6"
               noWrap
@@ -88,8 +95,10 @@ export const NavBar = () => {
                 }}
               >
                 {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
+                  <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">
+                      <Link to={page.path}>{page.name}</Link>
+                    </Typography>
                   </MenuItem>
                 ))}
               </Menu>
@@ -119,11 +128,11 @@ export const NavBar = () => {
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <Button
-                  key={page}
+                  key={page.name}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  {page}
+                  <Link to={page.path}>{page.name}</Link>
                 </Button>
               ))}
               <Box>
