@@ -45,16 +45,13 @@ const Item = ({ element }) => {
         <CardFooter>
           <ButtonGroup spacing="6.0rem">
             <ThemeProvider theme={theme}>
-              <Link to={`itemDetail/${element.id}`}>
+              <Link to={`/itemDetail/${element.id}`}>
                 <Button variant="contained" color="primary">
                   <Typography color="white" fontSize="2xl">
                     Detalles
                   </Typography>
                 </Button>
               </Link>
-              <Button variant="outlined" colorscheme="primary">
-                Añadir +
-              </Button>
             </ThemeProvider>
           </ButtonGroup>
         </CardFooter>

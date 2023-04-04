@@ -7,24 +7,28 @@ import { ThemeProvider } from "@mui/material";
 import { useState } from "react";
 import { baseTheme } from "./Components/Estilos/Estilos";
 import ProductosNav from "./Components/ProductosNav/ProductosNav";
+import CartContextProvider from "./context/CartContext";
 
 function App() {
   const [theme] = useState(baseTheme);
 
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <NavBar />
-        <ProductosNav />
-        <Routes>
-          <Route path="/" element={<ItemListContainer />} />
-          <Route
-            path="/category/:categoryName"
-            element={<ItemListContainer />}
-          />
-          <Route path="/itemDetail/:id" element={<ItemDetailContainer />} />
-        </Routes>
-      </BrowserRouter>
+      <CartContextProvider>
+        <BrowserRouter>
+          <NavBar />
+          <ProductosNav />
+          <Routes>
+            <Route path="/" element={<ItemListContainer />} />
+            <Route
+              path="/category/:categoryName"
+              element={<ItemListContainer />}
+            ></Route>
+
+            <Route path="/itemDetail/:id" element={<ItemDetailContainer />} />
+          </Routes>
+        </BrowserRouter>
+      </CartContextProvider>
     </ThemeProvider>
   );
 }

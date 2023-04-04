@@ -84,9 +84,7 @@ export default function DrawerLeft() {
             noWrap
             component="div"
             onClick={handleDrawerOpen}
-          >
-            Persistent drawer
-          </Typography>
+          ></Typography>
         </Toolbar>
       </AppBar>
       <Drawer
