@@ -8,24 +8,49 @@ import { useState } from "react";
 import { baseTheme } from "./Components/Estilos/Estilos";
 import ProductosNav from "./Components/ProductosNav/ProductosNav";
 import CartContextProvider from "./context/CartContext";
+import { FormCheckout } from "./Components/FormCheckout/FormCheckout";
+import Contacto from "./Components/Contacto/Contacto";
+import Ayuda from "./Components/Ayuda/Ayuda";
 
 function App() {
   const [theme] = useState(baseTheme);
-
   return (
     <ThemeProvider theme={theme}>
       <CartContextProvider>
         <BrowserRouter>
           <NavBar />
-          <ProductosNav />
+
           <Routes>
-            <Route path="/" element={<ItemListContainer />} />
+            <Route
+              path="/"
+              element={
+                <div>
+                  <ProductosNav /> <ItemListContainer />
+                </div>
+              }
+            />
             <Route
               path="/category/:categoryName"
-              element={<ItemListContainer />}
-            ></Route>
+              element={
+                <div>
+                  <ProductosNav /> <ItemListContainer />
+                </div>
+              }
+            />
+            <Route
+              path="/itemDetail/:id"
+              element={
+                <div>
+                  <ProductosNav />
+                  <ItemDetailContainer />
+                </div>
+              }
+            />
 
-            <Route path="/itemDetail/:id" element={<ItemDetailContainer />} />
+            <Route path="/contacto" element={<Contacto />} />
+            <Route path="/ayuda" element={<Ayuda />} />
+
+            <Route path="/checkOut" element={<FormCheckout />} />
           </Routes>
         </BrowserRouter>
       </CartContextProvider>

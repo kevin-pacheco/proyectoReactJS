@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   AppBar,
   Box,
@@ -20,8 +20,8 @@ import { Link } from "react-router-dom";
 
 const pages = [
   { name: "Productos", path: "/" },
-  { name: "Contacto", path: "/" },
-  { name: "Ayuda", path: "/" },
+  { name: "Contacto", path: "/contacto" },
+  { name: "Ayuda", path: "/ayuda" },
 ]; //Luego se agregaran los respectivos paths
 
 export const NavBar = () => {

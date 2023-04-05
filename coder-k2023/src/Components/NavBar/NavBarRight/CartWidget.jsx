@@ -1,14 +1,54 @@
 import { AddShoppingCart, Close, Delete } from "@mui/icons-material";
-import { Badge, IconButton, Modal, Box, Typography } from "@mui/material";
+import {
+  Badge,
+  IconButton,
+  Modal,
+  Box,
+  Typography,
+  Button,
+} from "@mui/material";
 
 import { useContext, useState } from "react";
 import { CartContext } from "../../../context/CartContext";
 
 import "./CartWidget.css";
 
+import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+
 export const CartWidget = () => {
-  const { cart, vaciarCarrito, getTotalQuantity, getTotalPrice } =
-    useContext(CartContext);
+  const {
+    cart,
+    vaciarCarrito,
+    getTotalQuantity,
+    getTotalPrice,
+    eliminarDelCarrito,
+  } = useContext(CartContext);
+
+  const clear = () => {
+    cerrarCarrito();
+    Swal.fire({
+      title: "Estás seguro?",
+      text: "Borrarás todo el carrito!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "VACIAR",
+      cancelButtonText: "CANCELAR",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        vaciarCarrito();
+        Swal.fire({
+          position: "center",
+          icon: "info",
+          title: "Carrito vaciado correctamente",
+          showConfirmButton: false,
+          timer: 2500,
+        });
+      }
+    });
+  };
 
   const total = getTotalQuantity();
   const preciototal = getTotalPrice();
@@ -70,7 +110,9 @@ export const CartWidget = () => {
           </Typography>
 
           {cart.length === 0 ? (
-            <p>No hay elementos en el carrito</p>
+            <Typography sx={{ fontWeight: "bold", textAlign: "center" }}>
+              <p>No hay elementos en el carrito</p>
+            </Typography>
           ) : (
             <div>
               {cart.map((elemento) => {
@@ -101,6 +143,9 @@ export const CartWidget = () => {
                     >
                       ${elemento.price}
                     </Typography>
+                    <IconButton onClick={() => eliminarDelCarrito(elemento.id)}>
+                      <Delete />
+                    </IconButton>
                   </Box>
                 );
               })}
@@ -112,18 +157,30 @@ export const CartWidget = () => {
               >
                 TOTAL: ${preciototal}
               </Typography>
+              <Box display="flex" justifyContent="center" my={2}>
+                <Link to="/checkOut">
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={cerrarCarrito}
+                  >
+                    Finalizar compra
+                  </Button>
+                </Link>
+              </Box>
 
               <IconButton
                 className="rectangular-shadow-button"
                 color="error"
-                onClick={vaciarCarrito}
+                onClick={clear}
                 sx={{
                   position: "absolute",
                   bottom: "20px",
                   right: "20px",
+                  borderRadius: 0,
                 }}
               >
-                <Delete />
+                <Delete sx={{ borderRadius: 0 }} />
                 Vaciar carrito
               </IconButton>
             </div>

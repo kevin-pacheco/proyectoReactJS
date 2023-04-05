@@ -1,31 +1,48 @@
 import { Flex } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { products } from "../../productsMock";
 import ItemList from "../ItemList/ItemList";
+import { CircularProgress, Box } from "@mui/material";
+
+import { db } from "../../firebaseConfig";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 const ItemListContainer = () => {
   const { categoryName } = useParams();
 
   const [items, setItems] = useState([]);
 
-  const productosFiltrados = products.filter(
-    (elemento) => elemento.category === categoryName
-  );
-
   useEffect(() => {
-    const productList = new Promise((resolve, reject) => {
-      resolve(categoryName ? productosFiltrados : products);
-    });
+    const itemsCollection = collection(db, "products");
 
-    productList
-      .then((res) => {
-        setItems(res);
-      })
-      .catch((error) => {
-        console.log(error);
+    let consulta = undefined;
+
+    if (categoryName) {
+      const q = query(itemsCollection, where("category", "==", categoryName));
+      consulta = getDocs(q);
+    } else {
+      consulta = getDocs(itemsCollection);
+    }
+
+    consulta.then((res) => {
+      let products = res.docs.map((product) => {
+        return {
+          ...product.data(),
+          id: product.id,
+        };
       });
+
+      setItems(products);
+    });
   }, [categoryName]);
+
+  if (items.length === 0) {
+    return (
+      <Box display="flex" justifyContent="center" my={2}>
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   return (
     <div>
