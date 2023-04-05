@@ -181,7 +181,7 @@ export const CartWidget = () => {
                 }}
               >
                 <Delete sx={{ borderRadius: 0 }} />
-                Vaciar carrito
+                <Link to="/">Vaciar carrito</Link>
               </IconButton>
             </div>
           )}
