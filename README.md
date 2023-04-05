@@ -2,6 +2,9 @@
 
 Este es un proyecto de tienda online desarrollado en React. El objetivo de este proyecto es construir una plataforma que permita a los usuarios buscar y comprar productos en línea. Para ello, se han utilizado diferentes tecnologías y componentes de React.
 
+## Mi GIF
+![](https://github.com/kevin-pacheco/proyectoReactJS/blob/main/coder-k2023/public/Byte-STORE-Google-Chrome-min.gif)
+
 ## Tecnologías utilizadas
 
 - React
